@@ -1,0 +1,227 @@
+/* ============================
+   RESPONSIVIDADE DO DASHBOARD
+============================ */
+
+/* Notebooks menores e tablets em paisagem */
+@media (max-width: 1200px) {
+  .main-content {
+    padding: 28px;
+  }
+
+  .metrics-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .charts-section {
+    grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+    gap: 18px;
+  }
+
+  .sidebar {
+    width: 230px;
+    padding-right: 16px;
+    padding-left: 16px;
+  }
+}
+
+/* Tablets */
+@media (max-width: 900px) {
+  .sidebar {
+    width: 210px;
+    padding: 24px 14px;
+  }
+
+  .main-content {
+    padding: 24px;
+  }
+
+  .charts-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .chart-container {
+    height: 270px;
+  }
+
+  .main-header {
+    gap: 18px;
+  }
+}
+
+/* Celulares */
+@media (max-width: 640px) {
+  .dashboard-container {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    min-height: auto;
+    padding: 18px;
+  }
+
+  .navigation {
+    margin-top: 20px;
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .nav-section-title {
+    flex: 0 0 100%;
+    margin: 8px 0 4px;
+  }
+
+  .nav-section-title:not(:first-child) {
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    flex: 1 1 calc(50% - 8px);
+    min-width: 130px;
+    min-height: 42px;
+    padding: 10px 12px;
+  }
+
+  .sidebar-promo,
+  .sidebar-profile {
+    display: none;
+  }
+
+  .main-content {
+    padding: 20px 16px;
+  }
+
+  .main-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 26px;
+  }
+
+  .header-actions {
+    gap: 12px;
+  }
+
+  .dashboard-section.active {
+    gap: 20px;
+  }
+
+  .metrics-section {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+  }
+
+  .metric-card {
+    padding: 16px;
+    gap: 12px;
+  }
+
+  .metric-card h3 {
+    font-size: 20px;
+  }
+
+  .metric-header {
+    gap: 8px;
+    font-size: 12px;
+  }
+
+  .metric-footer {
+    flex-wrap: wrap;
+    font-size: 11px;
+  }
+
+  .charts-section {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 16px;
+  }
+
+  .chart-card,
+  .products-section,
+  .transactions-section {
+    padding: 18px;
+  }
+
+  .chart-container {
+    height: 240px;
+    min-height: 0;
+  }
+
+  .card-header {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-bottom: 18px;
+  }
+
+  .transaction-controls {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .transaction-search,
+  .transaction-filter {
+    width: 100%;
+  }
+
+  .product-item {
+    gap: 12px;
+  }
+}
+
+/* Celulares estreitos */
+@media (max-width: 420px) {
+  .main-content {
+    padding: 16px 12px;
+  }
+
+  .header-title h2 {
+    font-size: 21px;
+  }
+
+  .header-title p {
+    font-size: 12px;
+  }
+
+  .header-actions {
+    gap: 10px;
+  }
+
+  .metrics-section {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .metric-card {
+    padding: 18px;
+  }
+
+  .chart-card,
+  .products-section,
+  .transactions-section {
+    padding: 15px;
+  }
+
+  .chart-container {
+    height: 220px;
+  }
+
+  .product-item {
+    align-items: flex-start;
+  }
+
+  .product-sales {
+    text-align: right;
+  }
+}
+
+/* Dropdowns não podem ultrapassar a tela em dispositivos pequenos */
+@media (max-width: 480px) {
+  .notification-panel {
+    width: min(340px, calc(100vw - 24px));
+    right: -6px;
+  }
+
+  .profile-panel {
+    right: -4px;
+    width: min(230px, calc(100vw - 24px));
+  }
+}

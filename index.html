@@ -1,0 +1,937 @@
+<!doctype html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>DashBoardK | Analytics</title>
+    <!-- Fonte do projeto -->
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&amp;display=swap"
+      rel="stylesheet"
+    />
+    <!-- CSS -->
+    <link href="css/style.css" rel="stylesheet" />
+    <link href="css/responsive.css" rel="stylesheet" />
+  </head>
+  <body>
+    <!-- CONTAINER PRINCIPAL -->
+    <div class="dashboard-container">
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+        <!-- BRAND -->
+        <div class="sidebar-brand">
+          <div class="brand-icon">K</div>
+          <div class="brand-info">
+            <h2>DashBoardK</h2>
+            <span> Finance Workspace </span>
+          </div>
+        </div>
+        <!-- NAVEGAÇÃO -->
+        <nav class="navigation">
+          <span class="nav-section-title"> MENU PRINCIPAL </span>
+          <a class="nav-link active" data-section="overview" href="#">
+            <svg fill="none" viewBox="0 0 24 24">
+              <rect height="7" rx="2" width="7" x="3" y="3"></rect>
+              <rect height="7" rx="2" width="7" x="14" y="3"></rect>
+              <rect height="7" rx="2" width="7" x="14" y="14"></rect>
+              <rect height="7" rx="2" width="7" x="3" y="14"></rect>
+            </svg>
+            <span> Overview </span>
+          </a>
+          <a class="nav-link" data-section="analytics" href="#">
+            <svg fill="none" viewBox="0 0 24 24">
+              <path d="M3 3v18h18"></path>
+              <path d="m7 14 4-4 4 3 5-7"></path>
+            </svg>
+            <span> Analytics </span>
+          </a>
+          <a class="nav-link" data-section="products" href="#">
+            <svg fill="none" viewBox="0 0 24 24">
+              <rect height="16" rx="2" width="18" x="3" y="4"></rect>
+              <path d="M8 4V2h8v2M3 10h18"></path>
+            </svg>
+            <span> Products </span>
+          </a>
+          <a class="nav-link" data-section="transactions" href="#">
+            <svg fill="none" viewBox="0 0 24 24">
+              <rect height="14" rx="3" width="18" x="3" y="5"></rect>
+              <path d="M3 10h18"></path>
+              <path d="M7 15h3"></path>
+            </svg>
+            <span> Transactions </span>
+          </a>
+          <a class="nav-link" data-section="history" href="#">
+            <svg fill="none" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="9"></circle>
+              <path d="M12 7v5l3 2"></path>
+            </svg>
+            <span> History </span>
+          </a>
+          <span class="nav-section-title"> PREFER&Ecirc;NCIAS </span>
+          <a class="nav-link" data-section="settings" href="#">
+            <svg fill="none" viewBox="0 0 24 24">
+              <circle cx="12" cy="12" r="3"></circle>
+              <path
+                d="m19.4 15 .1.1 1.1 1.8-1.8 3.1-2.1-.5a8 8 0 0 1-1.6.9l-.7 2.1h-3.6l-.7-2.1a8 8 0 0 1-1.6-.9l-2.1.5-1.8-3.1 1.1-1.8a8 8 0 0 1 0-1.9l-1.1-1.8 1.8-3.1 2.1.5a8 8 0 0 1 1.6-.9l.7-2.1h3.6l.7 2.1a8 8 0 0 1 1.6.9l2.1-.5 1.8 3.1-1.1 1.8a8 8 0 0 1 0 1.9Z"
+                transform="translate(-1 -1) scale(1.08)"
+              ></path>
+            </svg>
+            <span> Settings </span>
+          </a>
+        </nav>
+        <!-- CARD INFORMATIVO -->
+        <div class="sidebar-promo">
+          <div class="promo-icon">✦</div>
+          <h3>Financial control, simplified.</h3>
+          <p>Keep track of your money and make smarter decisions.</p>
+        </div>
+        <!-- PERFIL -->
+        <div class="sidebar-profile">
+          <div class="profile-avatar">K</div>
+
+          <div class="profile-info">
+            <h4>Kaike</h4>
+            <span>Personal Account</span>
+          </div>
+
+          <button
+            class="profile-menu"
+            id="profileMenuButton"
+            aria-label="Profile options"
+          >
+            &bull;&bull;&bull;
+          </button>
+
+          <div class="profile-dropdown" id="profileDropdown">
+            <button class="profile-dropdown-item" data-action="profile">
+              <i class="fa-regular fa-user"></i>
+              My Profile
+            </button>
+
+            <button class="profile-dropdown-item" data-action="settings">
+              <i class="fa-solid fa-gear"></i>
+              Account Settings
+            </button>
+
+            <div class="profile-dropdown-divider"></div>
+
+            <button class="profile-dropdown-item logout" data-action="logout">
+              <i class="fa-solid fa-right-from-bracket"></i>
+              Log Out
+            </button>
+          </div>
+        </div>
+      </aside>
+      <!-- ÁREA PRINCIPAL -->
+      <main class="main-content">
+        <!-- HEADER -->
+        <header class="main-header">
+          <div class="header-title">
+            <h2 id="pageTitle">Overview</h2>
+            <p id="pageDescription">
+              Welcome back! Here's what's happening today.
+            </p>
+          </div>
+          <div class="header-actions">
+            <div class="notification-wrapper">
+              <button
+                aria-label="Notifications"
+                class="notification-button"
+                id="notificationButton"
+              >
+                ♧
+                <span class="notification-dot"> </span>
+              </button>
+              <div class="notification-panel" id="notificationPanel">
+                <div class="notification-header">
+                  <h3>Notifications</h3>
+                  <button id="markReadButton">Mark all as read</button>
+                </div>
+                <div class="notification-list">
+                  <div class="notification-item unread">
+                    <span class="notification-icon"> 💰 </span>
+                    <div class="notification-content">
+                      <strong> New order received </strong>
+                      <p>Order #1048 has been received.</p>
+                      <small> 2 minutes ago </small>
+                    </div>
+                  </div>
+                  <div class="notification-item unread">
+                    <span class="notification-icon"> 📈 </span>
+                    <div class="notification-content">
+                      <strong> Revenue is growing </strong>
+                      <p>Your revenue increased by 12.8%.</p>
+                      <small> 1 hour ago </small>
+                    </div>
+                  </div>
+                  <div class="notification-item">
+                    <span class="notification-icon"> 👤 </span>
+                    <div class="notification-content">
+                      <strong> New customer </strong>
+                      <p>A new customer joined your store.</p>
+                      <small> 3 hours ago </small>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="profile-wrapper">
+              <button class="header-profile" id="profileButton">
+                <span class="profile-avatar"> AD </span>
+              </button>
+              <div class="profile-panel" id="profilePanel">
+                <div class="profile-panel-header">
+                  <span class="profile-avatar"> AD </span>
+                  <div class="profile-info">
+                    <strong> Admin Dashboard </strong>
+                    <small> Administrator </small>
+                  </div>
+                </div>
+                <div class="profile-menu">
+                  <button class="profile-menu-item" id="profileOption">
+                    <span> 👤 </span>
+                    <span> My Profile </span>
+                  </button>
+                  <button class="profile-menu-item" id="settingsOption">
+                    <span> ⚙️ </span>
+                    <span> Settings </span>
+                  </button>
+                  <div class="profile-divider"></div>
+                  <button
+                    class="profile-menu-item logout-item"
+                    id="logoutOption"
+                  >
+                    <span> &rarrhk; </span>
+                    <span> Log out </span>
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </header>
+        <!-- CONTEÚDO DO DASHBOARD -->
+        <div class="dashboard-content">
+          <section class="dashboard-section active" id="overview">
+            <section class="metrics-section">
+              <article class="metric-card">
+                <div class="metric-header">
+                  <span> Total Revenue </span>
+                  <span class="metric-icon"> $ </span>
+                </div>
+                <h3 id="revenueMetric">$48,294.00</h3>
+                <div class="metric-footer">
+                  <span class="metric-growth positive" id="revenueGrowth">
+                    +12.8%
+                  </span>
+                  <span> vs last month </span>
+                </div>
+              </article>
+              <article class="metric-card">
+                <div class="metric-header">
+                  <span> Total Orders </span>
+                  <span class="metric-icon"> ▤ </span>
+                </div>
+                <h3 id="ordersMetric">1,284</h3>
+                <div class="metric-footer">
+                  <span class="metric-growth positive" id="ordersGrowth">
+                    +8.2%
+                  </span>
+                  <span> vs last month </span>
+                </div>
+              </article>
+              <article class="metric-card">
+                <div class="metric-header">
+                  <span> Customers </span>
+                  <span class="metric-icon"> ♙ </span>
+                </div>
+                <h3 id="customersMetric">892</h3>
+                <div class="metric-footer">
+                  <span class="metric-growth positive" id="customersGrowth">
+                    +5.4%
+                  </span>
+                  <span> vs last month </span>
+                </div>
+              </article>
+              <article class="metric-card">
+                <div class="metric-header">
+                  <span> Conversion Rate </span>
+                  <span class="metric-icon"> % </span>
+                </div>
+                <h3 id="conversionMetric">3.64%</h3>
+                <div class="metric-footer">
+                  <span class="metric-growth positive" id="conversionGrowth">
+                    +0.6%
+                  </span>
+                  <span> vs last month </span>
+                </div>
+              </article>
+            </section>
+            <section class="charts-section">
+              <!-- FATURAMENTO -->
+              <article class="chart-card revenue-chart">
+                <div class="card-header">
+                  <div>
+                    <h3>Revenue Overview</h3>
+                    <p>Revenue performance over time</p>
+                  </div>
+                  <select class="chart-filter" id="revenuePeriod">
+                    <option value="7days">Last 7 days</option>
+                    <option value="30days">Last 30 days</option>
+                    <option value="12months">Last 12 months</option>
+                  </select>
+                </div>
+                <div class="chart-container" id="revenue-chart">
+                  <canvas id="revenueCanvas"> </canvas>
+                </div>
+              </article>
+              <!-- DISTRIBUIÇÃO DE VENDAS -->
+              <article class="chart-card sales-chart">
+                <div class="card-header">
+                  <div>
+                    <h3>Sales Distribution</h3>
+                    <p>Sales by category</p>
+                  </div>
+                </div>
+                <div class="chart-container" id="sales-chart">
+                  <canvas id="salesCanvas"> </canvas>
+                </div>
+              </article>
+            </section>
+          </section>
+
+          <!-- ANALYTICS PAGE -->
+          <section class="dashboard-section" id="analytics">
+            <!-- INDICADORES -->
+            <section class="metrics-section">
+              <article class="metric-card">
+                <div class="metric-header">
+                  <span>Total Revenue</span>
+                  <span class="metric-icon">$</span>
+                </div>
+
+                <h3>$48,294.00</h3>
+
+                <div class="metric-footer">
+                  <span class="metric-growth positive">+12.8%</span>
+                  <span>vs last month</span>
+                </div>
+              </article>
+
+              <article class="metric-card">
+                <div class="metric-header">
+                  <span>Average Order Value</span>
+                  <span class="metric-icon">↗</span>
+                </div>
+
+                <h3>$37.61</h3>
+
+                <div class="metric-footer">
+                  <span class="metric-growth positive">+6.4%</span>
+                  <span>vs last month</span>
+                </div>
+              </article>
+
+              <article class="metric-card">
+                <div class="metric-header">
+                  <span>Total Sales</span>
+                  <span class="metric-icon">▤</span>
+                </div>
+
+                <h3>1,284</h3>
+
+                <div class="metric-footer">
+                  <span class="metric-growth positive">+8.2%</span>
+                  <span>vs last month</span>
+                </div>
+              </article>
+
+              <article class="metric-card">
+                <div class="metric-header">
+                  <span>Conversion Rate</span>
+                  <span class="metric-icon">%</span>
+                </div>
+
+                <h3>3.64%</h3>
+
+                <div class="metric-footer">
+                  <span class="metric-growth positive">+0.6%</span>
+                  <span>vs last month</span>
+                </div>
+              </article>
+            </section>
+
+            <!-- GRÁFICOS -->
+            <section class="charts-section">
+              <!-- PERFORMANCE -->
+              <article class="chart-card revenue-chart">
+                <div class="card-header">
+                  <div>
+                    <h3>Revenue Performance</h3>
+                    <p>Detailed revenue analysis</p>
+                  </div>
+
+                  <select class="chart-filter" id="analyticsRevenuePeriod">
+                    <option value="7days">Last 7 days</option>
+                    <option value="30days">Last 30 days</option>
+                    <option value="12months">Last 12 months</option>
+                  </select>
+                </div>
+
+                <div class="chart-container">
+                  <canvas id="analyticsRevenueCanvas"></canvas>
+                </div>
+              </article>
+
+              <!-- CATEGORIAS -->
+              <article class="chart-card sales-chart">
+                <div class="card-header">
+                  <div>
+                    <h3>Sales by Category</h3>
+                    <p>Category performance distribution</p>
+                  </div>
+                </div>
+
+                <div class="chart-container">
+                  <canvas id="analyticsCategoryCanvas"></canvas>
+                </div>
+              </article>
+            </section>
+
+            <!-- PRODUTOS MAIS VENDIDOS -->
+            <section class="products-section">
+              <div class="card-header">
+                <div>
+                  <h3>Top Performing Products</h3>
+                  <p>Products with the highest revenue</p>
+                </div>
+              </div>
+
+              <div class="products-list">
+                <article class="product-item">
+                  <div class="product-info">
+                    <span class="product-name">Wireless Headphones</span>
+                    <span class="product-category">Electronics</span>
+                  </div>
+
+                  <div class="product-sales">
+                    <span>284 sales</span>
+                    <strong>$8,520</strong>
+                  </div>
+                </article>
+
+                <article class="product-item">
+                  <div class="product-info">
+                    <span class="product-name">Smart Watch</span>
+                    <span class="product-category">Accessories</span>
+                  </div>
+
+                  <div class="product-sales">
+                    <span>196 sales</span>
+                    <strong>$6,340</strong>
+                  </div>
+                </article>
+
+                <article class="product-item">
+                  <div class="product-info">
+                    <span class="product-name">Gaming Keyboard</span>
+                    <span class="product-category">Gaming</span>
+                  </div>
+
+                  <div class="product-sales">
+                    <span>158 sales</span>
+                    <strong>$4,890</strong>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </section>
+
+          <section class="dashboard-section" id="products">
+            <h2>Products</h2>
+            <p>Your best performing products.</p>
+            <section class="products-section">
+              <div class="card-header">
+                <div>
+                  <h3>Top Products</h3>
+                  <p>Best performing products</p>
+                </div>
+              </div>
+              <div class="products-list">
+                <article class="product-item">
+                  <div class="product-info">
+                    <span class="product-name"> Wireless Headphones </span>
+                    <span class="product-category"> Electronics </span>
+                  </div>
+                  <div class="product-sales">
+                    <span> 284 sales </span>
+                    <strong> $8,520 </strong>
+                  </div>
+                </article>
+                <article class="product-item">
+                  <div class="product-info">
+                    <span class="product-name"> Smart Watch </span>
+                    <span class="product-category"> Accessories </span>
+                  </div>
+                  <div class="product-sales">
+                    <span> 196 sales </span>
+                    <strong> $6,340 </strong>
+                  </div>
+                </article>
+                <article class="product-item">
+                  <div class="product-info">
+                    <span class="product-name"> Gaming Keyboard </span>
+                    <span class="product-category"> Gaming </span>
+                  </div>
+                  <div class="product-sales">
+                    <span> 158 sales </span>
+                    <strong> $4,890 </strong>
+                  </div>
+                </article>
+              </div>
+            </section>
+          </section>
+
+          <section class="dashboard-section" id="transactions">
+            <h2>Transactions</h2>
+            <p>Search and manage your recent transactions.</p>
+            <section class="transactions-section">
+              <div class="card-header">
+                <div>
+                  <h3>Recent Transactions</h3>
+                  <div class="transaction-controls">
+                    <div class="transaction-search">
+                      <span> &telrec; </span>
+                      <input
+                        id="transactionSearch"
+                        placeholder="Search transactions..."
+                        type="text"
+                      />
+                    </div>
+                    <select
+                      class="transaction-filter"
+                      id="transactionStatusFilter"
+                    >
+                      <option value="all">All Status</option>
+                      <option value="Completed">Completed</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Cancelled">Cancelled</option>
+                    </select>
+                  </div>
+                  <div class="no-transactions" id="noTransactions">
+                    <p>No transactions found.</p>
+                  </div>
+                  <p>Latest transactions from your store</p>
+                </div>
+                <button class="view-all-button">View all</button>
+              </div>
+              <div class="table-container">
+                <table class="transactions-table">
+                  <thead>
+                    <tr>
+                      <th>Customer</th>
+                      <th>Order</th>
+                      <th>Date</th>
+                      <th>Amount</th>
+                      <th>Status</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Olivia Martin</td>
+                      <td>#DK-1024</td>
+                      <td>Nov 23, 2026</td>
+                      <td>$240.00</td>
+                      <td>
+                        <span class="status completed"> Completed </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>James Smith</td>
+                      <td>#DK-1023</td>
+                      <td>Nov 22, 2026</td>
+                      <td>$120.50</td>
+                      <td>
+                        <span class="status pending"> Pending </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Sophia Williams</td>
+                      <td>#DK-1022</td>
+                      <td>Nov 22, 2026</td>
+                      <td>$89.90</td>
+                      <td>
+                        <span class="status completed"> Completed </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Noah Brown</td>
+                      <td>#DK-1021</td>
+                      <td>Nov 21, 2026</td>
+                      <td>$350.00</td>
+                      <td>
+                        <span class="status cancelled"> Cancelled </span>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td>Emma Wilson</td>
+                      <td>#DK-1020</td>
+                      <td>Nov 21, 2026</td>
+                      <td>$175.00</td>
+                      <td>
+                        <span class="status completed"> Completed </span>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+          </section>
+
+          <!-- HISTORY PAGE -->
+          <section class="dashboard-section" id="history">
+            <!-- RESUMO -->
+            <section class="metrics-section history-summary">
+              <article class="metric-card">
+                <div class="metric-header">
+                  <span>Total Activities</span>
+                  <span class="metric-icon">◷</span>
+                </div>
+                <h3>248</h3>
+                <div class="metric-footer">
+                  <span>All recorded activities</span>
+                </div>
+              </article>
+
+              <article class="metric-card">
+                <div class="metric-header">
+                  <span>Orders Created</span>
+                  <span class="metric-icon">+</span>
+                </div>
+                <h3>86</h3>
+                <div class="metric-footer">
+                  <span>New orders registered</span>
+                </div>
+              </article>
+
+              <article class="metric-card">
+                <div class="metric-header">
+                  <span>Products Updated</span>
+                  <span class="metric-icon">↻</span>
+                </div>
+                <h3>32</h3>
+                <div class="metric-footer">
+                  <span>Product changes recorded</span>
+                </div>
+              </article>
+
+              <article class="metric-card">
+                <div class="metric-header">
+                  <span>Last Activity</span>
+                  <span class="metric-icon">◷</span>
+                </div>
+                <h3>2 min ago</h3>
+                <div class="metric-footer">
+                  <span>Most recent update</span>
+                </div>
+              </article>
+            </section>
+
+            <!-- HISTORY CONTENT -->
+            <section class="history-section">
+              <div class="card-header history-header">
+                <div>
+                  <h3>Activity History</h3>
+                  <p>Keep track of everything happening in your store.</p>
+                </div>
+              </div>
+
+              <!-- FILTROS -->
+              <div class="history-controls">
+                <div class="history-search">
+                  <span>⌕</span>
+                  <input
+                    type="text"
+                    id="historySearch"
+                    placeholder="Search activities..."
+                  />
+                </div>
+
+                <select id="historyTypeFilter" class="history-filter">
+                  <option value="all">All Activities</option>
+                  <option value="order">Orders</option>
+                  <option value="product">Products</option>
+                  <option value="customer">Customers</option>
+                  <option value="payment">Payments</option>
+                </select>
+              </div>
+
+              <!-- TIMELINE -->
+              <div class="history-timeline" id="historyTimeline">
+                <!-- TODAY -->
+                <div class="history-date-group">
+                  <h4 class="history-date">Today — November 24, 2026</h4>
+
+                  <article class="history-item" data-type="order">
+                    <div class="history-icon order-icon">+</div>
+
+                    <div class="history-details">
+                      <h4>New order received</h4>
+                      <p>
+                        Order <strong>#DK-1048</strong> was successfully
+                        created.
+                      </p>
+                      <span>Customer: Olivia Martin</span>
+                    </div>
+
+                    <div class="history-meta">
+                      <span class="history-time">2 min ago</span>
+                      <span class="history-tag success">Completed</span>
+                    </div>
+                  </article>
+
+                  <article class="history-item" data-type="product">
+                    <div class="history-icon product-icon">↻</div>
+
+                    <div class="history-details">
+                      <h4>Product information updated</h4>
+                      <p>Wireless Headphones information was modified.</p>
+                      <span>Category: Electronics</span>
+                    </div>
+
+                    <div class="history-meta">
+                      <span class="history-time">35 min ago</span>
+                      <span class="history-tag info">Updated</span>
+                    </div>
+                  </article>
+
+                  <article class="history-item" data-type="payment">
+                    <div class="history-icon payment-icon">$</div>
+
+                    <div class="history-details">
+                      <h4>Payment confirmed</h4>
+                      <p>
+                        Payment for order <strong>#DK-1046</strong> was
+                        received.
+                      </p>
+                      <span>Amount: $240.00</span>
+                    </div>
+
+                    <div class="history-meta">
+                      <span class="history-time">1 hour ago</span>
+                      <span class="history-tag success">Paid</span>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- YESTERDAY -->
+                <div class="history-date-group">
+                  <h4 class="history-date">Yesterday — November 23, 2026</h4>
+
+                  <article class="history-item" data-type="customer">
+                    <div class="history-icon customer-icon">♙</div>
+
+                    <div class="history-details">
+                      <h4>New customer registered</h4>
+                      <p>A new customer account was created.</p>
+                      <span>Customer: James Smith</span>
+                    </div>
+
+                    <div class="history-meta">
+                      <span class="history-time">10:42 AM</span>
+                      <span class="history-tag info">New customer</span>
+                    </div>
+                  </article>
+
+                  <article class="history-item" data-type="order">
+                    <div class="history-icon order-icon">+</div>
+
+                    <div class="history-details">
+                      <h4>Order status changed</h4>
+                      <p>
+                        Order <strong>#DK-1042</strong> was marked as completed.
+                      </p>
+                      <span>Customer: Emma Wilson</span>
+                    </div>
+
+                    <div class="history-meta">
+                      <span class="history-time">9:15 AM</span>
+                      <span class="history-tag success">Completed</span>
+                    </div>
+                  </article>
+                </div>
+
+                <!-- OLDER ACTIVITIES -->
+                <div class="history-date-group">
+                  <h4 class="history-date">November 22, 2026</h4>
+
+                  <article class="history-item" data-type="product">
+                    <div class="history-icon product-icon">+</div>
+
+                    <div class="history-details">
+                      <h4>New product added</h4>
+                      <p>Smart Watch was added to the product catalog.</p>
+                      <span>Category: Accessories</span>
+                    </div>
+
+                    <div class="history-meta">
+                      <span class="history-time">4:30 PM</span>
+                      <span class="history-tag info">Created</span>
+                    </div>
+                  </article>
+                </div>
+              </div>
+
+              <!-- EMPTY STATE -->
+              <div class="no-history" id="noHistory" style="display: none">
+                <p>No activities found.</p>
+              </div>
+            </section>
+          </section>
+
+          <!-- SETTINGS SECTION -->
+          <section class="dashboard-section" id="settings">
+            <!-- SETTINGS HEADER -->
+            <div class="settings-heading">
+              <h2>General Settings</h2>
+              <p>Manage your store preferences and dashboard experience.</p>
+            </div>
+
+            <!-- STORE PROFILE -->
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <div>
+                  <h3>Store Profile</h3>
+                  <p>Update your store information.</p>
+                </div>
+              </div>
+
+              <div class="settings-form-grid">
+                <div class="settings-field">
+                  <label for="storeName">Store Name</label>
+                  <input type="text" id="storeName" value="Nexuuwear" />
+                </div>
+
+                <div class="settings-field">
+                  <label for="storeEmail">Store Email</label>
+                  <input
+                    type="email"
+                    id="storeEmail"
+                    placeholder="store@example.com"
+                  />
+                </div>
+
+                <div class="settings-field full-width">
+                  <label for="storeDescription">Store Description</label>
+                  <textarea
+                    id="storeDescription"
+                    placeholder="Describe your store..."
+                  ></textarea>
+                </div>
+              </div>
+
+              <button class="settings-save-button" id="saveStoreSettings">
+                Save Changes
+              </button>
+
+              <p class="settings-feedback" id="settingsFeedback">
+                Settings saved successfully!
+              </p>
+            </div>
+
+            <!-- PREFERENCES -->
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <div>
+                  <h3>Preferences</h3>
+                  <p>Customize your dashboard preferences.</p>
+                </div>
+              </div>
+
+              <div class="settings-form-grid">
+                <div class="settings-field">
+                  <label for="languagePreference">Language</label>
+                  <select id="languagePreference">
+                    <option value="en">English</option>
+                    <option value="pt">Português</option>
+                  </select>
+                </div>
+
+                <div class="settings-field">
+                  <label for="currencyPreference">Currency</label>
+                  <select id="currencyPreference">
+                    <option value="USD">USD ($)</option>
+                    <option value="BRL">BRL (R$)</option>
+                    <option value="EUR">EUR (€)</option>
+                  </select>
+                </div>
+              </div>
+            </div>
+
+            <!-- APPEARANCE -->
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <div>
+                  <h3>Appearance</h3>
+                  <p>Customize how your dashboard looks.</p>
+                </div>
+              </div>
+
+              <div class="settings-option">
+                <div>
+                  <h4>Dark Mode</h4>
+                  <p>Use a darker appearance across your dashboard.</p>
+                </div>
+
+                <input type="checkbox" id="darkModeToggle" checked />
+              </div>
+            </div>
+
+            <!-- NOTIFICATIONS -->
+            <div class="settings-card">
+              <div class="settings-card-header">
+                <div>
+                  <h3>Notifications</h3>
+                  <p>Manage the notifications you receive.</p>
+                </div>
+              </div>
+
+              <div class="settings-option">
+                <div>
+                  <h4>New Orders</h4>
+                  <p>Receive notifications when a new order arrives.</p>
+                </div>
+
+                <input type="checkbox" id="orderNotifications" checked />
+              </div>
+
+              <div class="settings-option">
+                <div>
+                  <h4>New Customers</h4>
+                  <p>Receive notifications when a customer registers.</p>
+                </div>
+
+                <input type="checkbox" id="customerNotifications" checked />
+              </div>
+
+              <div class="settings-option">
+                <div>
+                  <h4>Payment Updates</h4>
+                  <p>Receive notifications about payment activity.</p>
+                </div>
+
+                <input type="checkbox" id="paymentNotifications" checked />
+              </div>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+    <!-- Biblioteca Chart.js -->
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <!-- Script dos gráficos -->
+    <script src="js/charts.js"></script>
+    <script src="js/script.js"></script>
+  </body>
+</html>
